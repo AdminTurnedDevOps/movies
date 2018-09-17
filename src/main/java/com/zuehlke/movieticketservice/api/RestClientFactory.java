@@ -8,7 +8,7 @@ import feign.hystrix.HystrixFeign;
 import feign.jackson.JacksonDecoder;
 
 /**
- * Provides functionality to create rest client APIs using Feign
+ * Provides functionality to create rest clients using Feign
  */
 public class RestClientFactory {
 

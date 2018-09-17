@@ -25,7 +25,7 @@ public class MovieServiceAdapterIntegrationTest {
     }
 
     @Test
-    public void getMovies() throws Exception {
+    public void getMovies() {
         MovieServiceAdapter movieServiceAdapter = new MovieServiceAdapter(MOVIE_SERVICE_URL);
 
         List<Movie> movies = movieServiceAdapter.getMovies();

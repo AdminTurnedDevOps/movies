@@ -1,6 +1,7 @@
 package com.zuehlke.movieticketservice.domain;
 
 
+import java.util.List;
 import java.util.Objects;
 
 
@@ -9,6 +10,7 @@ public class Movie {
     private int id;
     private String title;
     private String posterUrl;
+    private List<Rating> ratings;
 
     public Movie(int id, String title, String posterUrl) {
         this.id = id;
@@ -38,6 +40,14 @@ public class Movie {
 
     public void setPosterUrl(String posterUrl) {
         this.posterUrl = posterUrl;
+    }
+
+    public List<Rating> getRatings() {
+        return ratings;
+    }
+
+    public void setRatings(List<Rating> ratings) {
+        this.ratings = ratings;
     }
 
     @Override

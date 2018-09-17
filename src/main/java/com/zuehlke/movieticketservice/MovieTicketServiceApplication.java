@@ -15,13 +15,13 @@ public class MovieTicketServiceApplication {
 	}
 
 	@Bean
-	public MovieServiceAdapter movieServiceAdapter(@Value("${movie-service.url}") String url) {
+	public MovieServiceAdapter movieServiceAdapter(@Value("${endpoint.movie-service.url}") String url) {
 		// url defined in the application.properties file
 		return new MovieServiceAdapter(url);
 	}
 
 	@Bean
-	public RatingServiceAdapter ratingServiceAdapter(@Value("${rating-service.url}") String url) {
+	public RatingServiceAdapter ratingServiceAdapter(@Value("${endpoint.rating-service.url}") String url) {
 		return new RatingServiceAdapter(url);
 	}
 }

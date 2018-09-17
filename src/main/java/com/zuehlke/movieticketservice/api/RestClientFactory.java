@@ -4,8 +4,10 @@ package com.zuehlke.movieticketservice.api;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.MapperFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import feign.Logger;
 import feign.hystrix.HystrixFeign;
 import feign.jackson.JacksonDecoder;
+import feign.slf4j.Slf4jLogger;
 
 /**
  * Provides functionality to create rest clients using Feign
@@ -23,6 +25,8 @@ public class RestClientFactory {
                 .configure(MapperFeature.ACCEPT_CASE_INSENSITIVE_PROPERTIES, true);
 
         return HystrixFeign.builder()
-                .decoder(new JacksonDecoder(mapper));
+                .decoder(new JacksonDecoder(mapper))
+                .logger(new Slf4jLogger(RestClientFactory.class))
+                .logLevel(Logger.Level.FULL);
     }
 }

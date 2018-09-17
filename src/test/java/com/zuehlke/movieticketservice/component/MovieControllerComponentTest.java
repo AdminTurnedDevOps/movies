@@ -62,7 +62,7 @@ public class MovieControllerComponentTest {
                 .get("/api/v1/movies/{id}", 1)
                 .then()
                 .statusCode(200)
-                .body("id", equalTo(1))
+                .body("id", equalTo(2))
                 .body("title", equalTo("Batman Begins"))
                 .body("ratings.source", hasItems("Rotten Tomatoes"));
     }

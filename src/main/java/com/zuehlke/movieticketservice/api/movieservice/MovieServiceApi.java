@@ -5,6 +5,10 @@ import feign.RequestLine;
 
 import java.util.List;
 
+/**
+ * Provides movies:
+ * https://movie-service.herokuapp.com/swagger-ui.html#/movie-controller
+ */
 public interface MovieServiceApi {
 
     @RequestLine("GET /api/v1/movies")

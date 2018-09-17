@@ -2,6 +2,7 @@ package com.zuehlke.movieticketservice;
 
 import com.zuehlke.movieticketservice.api.movieservice.MovieServiceAdapter;
 import com.zuehlke.movieticketservice.api.ratingservice.RatingServiceAdapter;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
@@ -14,12 +15,13 @@ public class MovieTicketServiceApplication {
 	}
 
 	@Bean
-	public MovieServiceAdapter movieServiceAdapter() {
-		return new MovieServiceAdapter("https://movie-service.herokuapp.com/");
+	public MovieServiceAdapter movieServiceAdapter(@Value("${movie-service.url}") String url) {
+		// url defined in the application.properties file
+		return new MovieServiceAdapter(url);
 	}
 
 	@Bean
-	public RatingServiceAdapter ratingServiceAdapter() {
-		return new RatingServiceAdapter("https://movie-rating-service.herokuapp.com/");
+	public RatingServiceAdapter ratingServiceAdapter(@Value("${rating-service.url}") String url) {
+		return new RatingServiceAdapter(url);
 	}
 }

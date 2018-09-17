@@ -18,6 +18,7 @@ import static org.junit.Assert.assertTrue;
  */
 public class MovieServiceAdapterIntegrationTest {
 
+    // TODO: read from application.properties
     private static final String MOVIE_SERVICE_URL = "https://movie-service.herokuapp.com/";
 
     static {

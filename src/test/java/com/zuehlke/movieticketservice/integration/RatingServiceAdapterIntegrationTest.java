@@ -14,6 +14,7 @@ import static org.hamcrest.Matchers.hasSize;
  */
 public class RatingServiceAdapterIntegrationTest {
 
+    // TODO: read from application.properties
     private static final String RATING_SERVICE_URL = "https://movie-rating-service.herokuapp.com/";
 
     static {

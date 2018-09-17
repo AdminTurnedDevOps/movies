@@ -1,5 +1,6 @@
 buildscript {
 	ext {
+		// TODO: update version to 2+ (fix compatibility issues with spring-cloud)
 		springBootVersion = '1.5.10.RELEASE'
 	}
 	repositories {

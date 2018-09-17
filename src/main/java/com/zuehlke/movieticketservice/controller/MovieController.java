@@ -4,6 +4,8 @@ import com.zuehlke.movieticketservice.api.movieservice.MovieServiceAdapter;
 import com.zuehlke.movieticketservice.api.ratingservice.RatingServiceAdapter;
 import com.zuehlke.movieticketservice.domain.Movie;
 import com.zuehlke.movieticketservice.domain.Rating;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,6 +17,8 @@ import java.util.List;
 @RequestMapping("/api/v1")
 public class MovieController {
 
+    private final Logger logger = LoggerFactory.getLogger(getClass());
+
     private final MovieServiceAdapter movieServiceAdapter;
     private final RatingServiceAdapter ratingServiceAdapter;
 
@@ -25,11 +29,13 @@ public class MovieController {
 
     @GetMapping("/movies")
     public List<Movie> getMovies() {
+        logger.debug("Requested all movies");
         return movieServiceAdapter.getMovies();
     }
 
     @GetMapping("/movies/{id}")
     public Movie getMovie(@PathVariable("id") int id) {
+        logger.debug("Requested movie for id {}", id);
         List<Rating> ratings = ratingServiceAdapter.getRatings(id);
 
         return movieServiceAdapter.getMovieById(id)

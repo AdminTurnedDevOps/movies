@@ -23,13 +23,20 @@ repositories {
 	mavenCentral()
 }
 
+dependencyManagement {
+    imports {
+        mavenBom 'org.springframework.cloud:spring-cloud-dependencies:Edgware.SR1'
+    }
+}
 
 dependencies {
-	compile('org.springframework.boot:spring-boot-starter-web')
-	compile('io.springfox:springfox-swagger2:2.9.2')
-	compile('io.springfox:springfox-swagger-ui:2.9.2')
+	compile 'org.springframework.boot:spring-boot-starter-web'
+	compile 'io.springfox:springfox-swagger2:2.9.2'
+	compile 'io.springfox:springfox-swagger-ui:2.9.2'
+	compile 'org.springframework.cloud:spring-cloud-starter-feign'
+	compile 'io.github.openfeign:feign-jackson:9.5.0'
 
 	// dependencies for testing
-	testCompile ('io.rest-assured:rest-assured:3.1.1')
-	testCompile('org.springframework.boot:spring-boot-starter-test')
+	testCompile 'io.rest-assured:rest-assured:3.0.2'
+	testCompile 'org.springframework.boot:spring-boot-starter-test'
 }

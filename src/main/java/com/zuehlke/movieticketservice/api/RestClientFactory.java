@@ -11,11 +11,20 @@ import feign.slf4j.Slf4jLogger;
 
 /**
  * Provides functionality to create rest clients using Feign
+ * Example:
+ * @see com.zuehlke.movieticketservice.api.movieservice.MovieServiceAdapter
  */
 public class RestClientFactory {
 
     public static <T> T createClient(String url, Class<T> clazz) {
         return createDefaultClient().target(clazz, url);
+    }
+
+    /**
+     * Will use the fallback if real service is not available.
+     */
+    public static <T> T createClientWithFallback(String url, Class<T> clazz, T fallback) {
+        return createDefaultClient().target(clazz, url, fallback);
     }
 
     private static HystrixFeign.Builder createDefaultClient() {

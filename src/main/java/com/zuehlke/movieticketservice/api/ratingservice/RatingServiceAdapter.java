@@ -5,6 +5,7 @@ import com.zuehlke.movieticketservice.domain.Rating;
 import org.springframework.boot.actuate.health.Health;
 import org.springframework.boot.actuate.health.HealthIndicator;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -16,7 +17,20 @@ public class RatingServiceAdapter implements HealthIndicator {
 
     public RatingServiceAdapter(String url) {
         this.url = url;
-        this.ratingServiceApi = RestClientFactory.createClient(url, RatingServiceApi.class);
+
+        // This fallback mock will be used if the real rating-service fails.
+        // The fallback service returns an empty list instead of the ratings.
+        RatingServiceApi ratingServiceApiFallback = new RatingServiceApi() {
+            @Override
+            public List<RatingResponse> getRatingsByMovieId(int id) {
+                return Collections.emptyList();
+            }
+            @Override
+            public void getHealthStatus() { }
+        };
+
+        this.ratingServiceApi = RestClientFactory
+                .createClientWithFallback(url, RatingServiceApi.class, ratingServiceApiFallback);
     }
 
     public List<Rating> getRatings(int movieId) {

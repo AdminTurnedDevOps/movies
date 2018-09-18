@@ -14,4 +14,6 @@ public interface RatingServiceApi {
     @RequestLine("GET /api/v1/ratings/{id}")
     List<RatingResponse> getRatingsByMovieId(@Param("id") int id);
 
+    @RequestLine("GET /health")
+    void getHealthStatus();
 }

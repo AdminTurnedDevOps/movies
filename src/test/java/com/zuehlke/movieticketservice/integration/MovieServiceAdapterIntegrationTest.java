@@ -14,7 +14,7 @@ import static org.hamcrest.Matchers.hasSize;
 import static org.junit.Assert.assertTrue;
 
 /**
- * Tests the integration with the external movie-service
+ * Tests the integration with the real external movie service
  */
 public class MovieServiceAdapterIntegrationTest {
 

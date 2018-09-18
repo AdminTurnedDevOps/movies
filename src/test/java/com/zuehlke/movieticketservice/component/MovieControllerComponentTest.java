@@ -21,6 +21,9 @@ import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.hasItems;
 import static org.mockito.Matchers.anyInt;
 
+/**
+ * Mocks the peripheral systems and tests the integration starting at controller level.
+ */
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class MovieControllerComponentTest {

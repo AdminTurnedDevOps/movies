@@ -10,7 +10,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.hasSize;
 
 /**
- * Tests the integration with the real external movie-service
+ * Tests the integration with the real external rating service
  */
 public class RatingServiceAdapterIntegrationTest {
 

@@ -1,4 +1,4 @@
-package com.zuehlke.movieticketservice;
+package com.zuehlke.movieticketservice.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

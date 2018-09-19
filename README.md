@@ -14,9 +14,7 @@ http://localhost:8080/hystrix/monitor?stream=http%3A%2F%2Flocalhost%3A8080%2Fhys
 
 The configuration is done in the `application.properties` file.
 
-TODO: 
-- Add frontend (including build)
-- Move external services (movie-service, rating-service) into this repository and manage using gradle multimodule project
-- Describe Feign as RestClient (propose alternatives)
-- Check how many instances are created (by request?, threads?)
-- Check RestTemplate instead of Feign for RestClients
+Ideas:  
+- add frontend and setup build (angularjs, ts, webpack, gradle)
+- add DB for movie/rating persistence
+- add authentication to use the app

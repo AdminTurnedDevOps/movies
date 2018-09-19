@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.com/ynnckth/movie-ticket.svg?branch=master)](https://travis-ci.com/ynnckth/movie-ticket)
+[![Build Status](https://travis-ci.com/ynnckth/movie-ticket-service.svg?branch=master)](https://travis-ci.com/ynnckth/movie-ticket-service)
 
 
 #### Swagger Endpoint Documentation
@@ -21,14 +21,16 @@ Ideas:
 
 # Development
 
-## Client/Frontend
+## Client / Frontend
+
+The Angular client code is located under `src/main/webapp`
+and was created using the angular-cli (see https://cli.angular.io/).
 
 **Serve/watch client (live reload server)**  
-The client code is located under `src/main/webapp`
 To start a local dev server for the client code run:  
-> `ng serve --open`   
+> `ng serve --open`    
 http://localhost:4200
 
 **Build client**
-> `ng build`  
+> `ng build`   
 Builds the client into the `src/main/webapp/dist/` directory

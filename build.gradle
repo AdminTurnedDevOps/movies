@@ -47,11 +47,12 @@ dependencies {
 
 def webappDir = "$projectDir/src/main/webapp"
 
+// gets called from the java plugin build task
 processResources {
 	dependsOn "copyFrontendDist"
 }
 
-// copies the built frontend into the static resources  directory
+// copies the built frontend content into the static resources directory
 task copyFrontendDist(type: Copy) {
 	dependsOn "buildFrontend"
 
@@ -66,7 +67,7 @@ task buildFrontend(type:Exec) {
 	workingDir "$webappDir"
 	inputs.dir "$webappDir"
 	group = BasePlugin.BUILD_GROUP
-	commandLine "ng", "build"
+	commandLine "npm", "run", "ng", "build"
 }
 
 // installs the client webapp

@@ -18,3 +18,17 @@ Ideas:
 - add frontend and setup build (angularjs, ts, webpack, gradle)
 - add DB for movie/rating persistence
 - add authentication to use the app
+
+# Development
+
+## Client/Frontend
+
+**Serve/watch client (live reload server)**  
+The client code is located under `src/main/webapp`
+To start a local dev server for the client code run:  
+> `ng serve --open`   
+http://localhost:4200
+
+**Build client**
+> `ng build`  
+Builds the client into the `src/main/webapp/dist/` directory

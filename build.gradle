@@ -44,3 +44,35 @@ dependencies {
 	testCompile 'io.rest-assured:rest-assured:3.0.2'
 	testCompile 'org.springframework.boot:spring-boot-starter-test'
 }
+
+def webappDir = "$projectDir/src/main/webapp"
+
+processResources {
+	dependsOn "copyFrontendDist"
+}
+
+// copies the built frontend into the static resources  directory
+task copyFrontendDist(type: Copy) {
+	dependsOn "buildFrontend"
+
+	from "$webappDir/dist/webapp"
+	into "$projectDir/src/main/resources/static"
+}
+
+// builds the frontend webapp into src/main/webapp/dist
+task buildFrontend(type:Exec) {
+	dependsOn "installFrontend"
+
+	workingDir "$webappDir"
+	inputs.dir "$webappDir"
+	group = BasePlugin.BUILD_GROUP
+	commandLine "ng", "build"
+}
+
+// installs the client webapp
+task installFrontend(type:Exec) {
+	workingDir "$webappDir"
+	inputs.dir "$webappDir"
+	group = BasePlugin.BUILD_GROUP
+	commandLine "npm", "install"
+}

@@ -22,6 +22,7 @@ public class RestClientFactory {
 
     /**
      * Will use the fallback if real service is not available.
+     * The fallback is an alternative implementation of an API interface.
      */
     public static <T> T createClientWithFallback(String url, Class<T> clazz, T fallback) {
         return createDefaultClient().target(clazz, url, fallback);

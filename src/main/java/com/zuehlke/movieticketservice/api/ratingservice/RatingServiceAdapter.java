@@ -4,12 +4,16 @@ import com.zuehlke.movieticketservice.api.RestClientFactory;
 import com.zuehlke.movieticketservice.domain.Rating;
 import org.springframework.boot.actuate.health.Health;
 import org.springframework.boot.actuate.health.HealthIndicator;
+import org.springframework.cloud.client.circuitbreaker.EnableCircuitBreaker;
+import org.springframework.stereotype.Service;
 
 import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
 
+@Service
+@EnableCircuitBreaker
 public class RatingServiceAdapter implements HealthIndicator {
 
     private final RatingServiceApi ratingServiceApi;

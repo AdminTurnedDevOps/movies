@@ -5,8 +5,12 @@ import com.zuehlke.movieticketservice.api.ratingservice.RatingServiceAdapter;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.netflix.hystrix.EnableHystrix;
+import org.springframework.cloud.netflix.hystrix.dashboard.EnableHystrixDashboard;
 import org.springframework.context.annotation.Bean;
 
+@EnableHystrix
+@EnableHystrixDashboard
 @SpringBootApplication
 public class MovieTicketServiceApplication {
 

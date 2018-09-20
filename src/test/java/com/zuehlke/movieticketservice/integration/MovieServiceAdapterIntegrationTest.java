@@ -2,6 +2,7 @@ package com.zuehlke.movieticketservice.integration;
 
 import com.zuehlke.movieticketservice.api.movieservice.MovieServiceAdapter;
 import com.zuehlke.movieticketservice.domain.Movie;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import java.util.List;
@@ -16,6 +17,7 @@ import static org.junit.Assert.assertTrue;
 /**
  * Tests the integration with the real external movie service
  */
+@Ignore
 public class MovieServiceAdapterIntegrationTest {
 
     // TODO: read from application.properties

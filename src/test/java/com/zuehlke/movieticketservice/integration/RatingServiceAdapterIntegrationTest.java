@@ -2,6 +2,7 @@ package com.zuehlke.movieticketservice.integration;
 
 import com.zuehlke.movieticketservice.api.ratingservice.RatingServiceAdapter;
 import com.zuehlke.movieticketservice.domain.Rating;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import java.util.List;
@@ -12,6 +13,7 @@ import static org.hamcrest.Matchers.hasSize;
 /**
  * Tests the integration with the real external rating service
  */
+@Ignore
 public class RatingServiceAdapterIntegrationTest {
 
     // TODO: read from application.properties

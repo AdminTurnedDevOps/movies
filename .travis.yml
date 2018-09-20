@@ -6,6 +6,5 @@ deploy:
   api_key:
     # generated with travis encrypt --pro $(heroku auth:token) --add deploy.api_key
     secure: KwVchFoxuLz8wXs5CCeHH/e75C2IWcMDS4LtGXI43/wUjoAwi6fTfRcR2dGPqmDnlBgKxGgLqBAUq76Oz/ue5Cn4l7rfWLDaPXNVIavvflexOqgdmDyL09S8UQyXe2NsPhBgG4fGC3qQWNmHt+2yvS9wrCNS8NFJT4zFqbbjlh0d4KD6GKNGIOVVXXQ8Ou/1Pd1lGQlbki2uL3L6XdtLr2VjNkfTVNzSLxkbJPtxfk2vwb/sQEEN3viyVXr8fph+pBb35UYIct4fePIzwwC6Bq+EpcNOfLiFa2Lf4iDi0nmxxbEbAk/j2JRmLySqQ5QgO8ESruaYajrij8HBV/5UgQ15h1AyuhOegSGBEEwpwk/5JW+KX5ZTFkRiMmbNynfPUKzEWuslNIocFmXu7/Z/LM5TrjS/7S+Y9ftyf851iUv6TLbc4IlGsn3ddrsbj3ECu0NAJ87RRDguwee+zvFfC8TY705AYjIDiNG+6Kb3jNR7yTFeCcBnMcOqLAip1MGxvBRS2IWPryqbKQPEkLXB168du5Zm1hLqPK6qAiptd1HT1IUNu+5AOLgfB6Stgfg4fFt6/eeehm2KehRuEWTAeWSgMwnFC6ce6730Udx+d9xJ+Wfq98odqyqyjcDfX9MFx2PuYhSa9OeDmq6gURgFHiakk1q7/bB5tgYsxaGsZGs=
+  file: ./build/libs/movie-ticket-service-0.0.1-SNAPSHOT.jar
   skip_cleanup: true
-  file:
-      - "build/libs/movie-ticket-service-0.0.1-SNAPSHOT.jar"

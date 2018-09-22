@@ -1,6 +1,11 @@
-[![Build Status](https://travis-ci.com/ynnckth/movie-ticket-service.svg?branch=master)](https://travis-ci.com/ynnckth/movie-ticket-service)
+[![Build Status](https://travis-ci.com/ynnckth/movies.svg?branch=master)](https://travis-ci.com/ynnckth/movies)
 
-# Development
+# Movies
+Demo application used in the course *Building Microservices with Spring Boot*.
+> https://github.com/ynnckth/building-microservices
+
+
+## Development
 
 ### Client / Frontend
 
@@ -36,7 +41,7 @@ The configuration is done in the `application.properties` file.
 
 
 
-# CI/CD Pipeline
+## CI/CD Pipeline
 This project uses **Travis CI** as a continuous integration and deployment platform (https://travis-ci.com/).  
 The configuration is done in `travis.yml`. The Github repository of this project is referenced in the Travis project.
 

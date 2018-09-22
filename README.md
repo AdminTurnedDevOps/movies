@@ -1,8 +1,7 @@
 [![Build Status](https://travis-ci.com/ynnckth/movies.svg?branch=master)](https://travis-ci.com/ynnckth/movies)
 
 # Movies
-Demo application used in the course *Building Microservices with Spring Boot*.
-> https://github.com/ynnckth/building-microservices
+Demo application used in the course [*Building Microservices with Spring Boot*](https://github.com/ynnckth/building-microservices)
 
 
 ## Development
@@ -10,7 +9,7 @@ Demo application used in the course *Building Microservices with Spring Boot*.
 ### Client / Frontend
 
 The Angular client code is located under `src/main/webapp`
-and was created using the angular-cli (see https://cli.angular.io/).
+and was created using the [angular-cli](https://cli.angular.io/).
 
 **Serve/watch client (live reload server)**  
 To start a local dev server for the client code run:  

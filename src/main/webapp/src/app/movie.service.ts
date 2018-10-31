@@ -1,7 +1,6 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {MOVIES} from "./mock-movies";
-import {of} from 'rxjs';
+import {Movie} from "./movie";
 
 @Injectable({
   providedIn: 'root'
@@ -12,8 +11,6 @@ export class MovieService {
   }
 
   loadMovies() {
-    // TODO: load real movies from backend
-    return of(MOVIES);
-    //return this.httpClient.get<Movie[]>('api/movies');
+    return this.httpClient.get<Movie[]>('api/v1/movies');
   }
 }

@@ -9,7 +9,7 @@
 
 <div *ngIf="errorLoadingMovies" class="error">There was an error loading the movies!</div>
 
-<div class="movies-list">
+<div *ngIf="displayedMovies" class="movies-list">
   <div class="list-header">
     <div>Title</div>
   </div>

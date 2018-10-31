@@ -25,6 +25,9 @@ Builds the client into the `src/main/webapp/dist/` directory
 Build the application: 
 > `./gradlew build`
 
+Run the built jar (starts the app running on port 8080):
+> `java -jar build/libs/<artifact>.jar`
+
 #### Swagger Endpoint Documentation
 > http://localhost:8080/swagger-ui.html
 

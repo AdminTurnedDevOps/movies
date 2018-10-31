@@ -40,7 +40,7 @@ export class MoviesListComponent implements OnInit {
   }
 
   showMovieDetails(movieId: number) {
-    // TODO: implement
+    this.selectedMovieId = movieId;
   }
 
   private applyFilter(movieTitle) {

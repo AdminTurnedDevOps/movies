@@ -33,12 +33,12 @@
 }
 
 .movie-header:hover {
-  background-color: #969696;
+  background-color: darkslategrey;
   cursor: pointer;
 }
 
 .movie-header.selected {
-  background-color: #ff820a;
+  background-color: darkslategrey;
 }
 
 .search-form {

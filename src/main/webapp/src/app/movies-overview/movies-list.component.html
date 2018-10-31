@@ -1,3 +1,4 @@
+<!-- TODO: display icon and title on the left side and search form on the right side -->
 <div class="search-form">
   <img src="../../assets/film_camera.svg" width="50" height="50" class="logo">
   <form [formGroup]="searchForm" (ngSubmit)="onSearch()">
@@ -10,12 +11,12 @@
 
 <div class="movies-list">
   <div class="list-header">
-    <div>Movie</div>
+    <div>Title</div>
   </div>
   <div class="movie-container" *ngFor="let movie of displayedMovies">
     <div class="movie-header" [ngClass]="{'selected': selectedMovieId === movie.id}" (click)="showMovieDetails(movie.id)">
       <div>{{movie.title}}</div>
     </div>
-    <!--<movie-details *ngIf="selectedMovieId === movie.id" [movie]="movie"></movie-details>-->
+    <movie-details *ngIf="selectedMovieId === movie.id" [movie]="movie"></movie-details>
   </div>
 </div>

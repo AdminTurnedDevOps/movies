@@ -5,11 +5,13 @@ import { AppComponent } from './app.component';
 import { MoviesListComponent } from './movies-overview/movies-list.component';
 import {HttpClientModule} from '@angular/common/http';
 import {ReactiveFormsModule} from '@angular/forms';
+import { MovieDetailsComponent } from './movie-details/movie-details.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MoviesListComponent,
+    MovieDetailsComponent,
   ],
   imports: [
     BrowserModule,

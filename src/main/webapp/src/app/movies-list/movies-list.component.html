@@ -2,7 +2,7 @@
 <div class="search-form">
   <img src="../../assets/film_camera.svg" width="50" height="50" class="logo">
   <form [formGroup]="searchForm" (ngSubmit)="onSearch()">
-  <label>Movie <input [formControl]="searchForm.controls.movieTitle" type="text"></label>
+  <label><input [formControl]="searchForm.controls.movieTitle" type="text" placeholder="Movie"></label>
   <button type="submit">Search</button>
 </form>
 </div>

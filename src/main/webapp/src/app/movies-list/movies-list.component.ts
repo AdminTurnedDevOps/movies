@@ -35,8 +35,7 @@ export class MoviesListComponent implements OnInit {
 
   onSearch() {
     this.selectedMovieId = undefined;
-    const movieTitle = this.searchForm.controls.movieTitle.value;
-    this.applyFilter(movieTitle);
+    this.applyFilter(this.searchForm.controls.movieTitle.value);
   }
 
   showMovieDetails(movieId: number) {
@@ -44,7 +43,7 @@ export class MoviesListComponent implements OnInit {
   }
 
   private applyFilter(movieTitle) {
-    this.displayedMovies = this.allMovies.filter(movie => movie.title.toLowerCase().includes(movieTitle.toLowerCase()));
+    this.displayedMovies = this.allMovies.filter(movie => !movieTitle || movie.title.toLowerCase().includes(movieTitle.toLowerCase()));
   }
 
 }

@@ -67,8 +67,8 @@ jobs:
       - run:
           name: Deploy to Heroku
           command: |
-              heroku container:push
-              heroku container:release
+              heroku container:push web
+              heroku container:release web
 
 workflows:
   version: 2

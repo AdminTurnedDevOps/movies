@@ -51,7 +51,6 @@ jobs:
           path: ~/junit
 
   deploy:
-
     machine: true
 
     steps:
@@ -61,7 +60,7 @@ jobs:
           name: Build Docker Image
           command: docker build -t movies
 
-      -run:
+      - run:
           name: Deploy to Heroku
           command: |
               docker login --username=$HEROKU_USER_NAME --password=$HEROKU_API_KEY registry.heroku.com

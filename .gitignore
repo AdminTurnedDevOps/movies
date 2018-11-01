@@ -29,6 +29,9 @@ node_modules/
 .DS_Store
 Thumbs.db
 
+# JS test results
+src/main/webapp/test-results
+
 # misc
 /.sass-cache
 /connect.lock

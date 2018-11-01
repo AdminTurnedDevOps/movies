@@ -75,6 +75,16 @@ task buildFrontend(type:Exec) {
 	commandLine "npm", "run", "ng", "build"
 }
 
+// runs the frontend tests
+task testFrontend(type:Exec) {
+    dependsOn "installFrontend"
+
+    workingDir "$webappDir"
+    inputs.dir "$webappDir"
+    group = BasePlugin.BUILD_GROUP
+    commandLine "npm", "run", "test-singlerun"
+}
+
 // installs the client webapp
 task installFrontend(type:Exec) {
 	workingDir "$webappDir"

@@ -82,7 +82,7 @@ task testFrontend(type:Exec) {
     workingDir "$webappDir"
     inputs.dir "$webappDir"
     group = BasePlugin.BUILD_GROUP
-    commandLine "npm", "run", "test-singlerun"
+    commandLine "npm", "run", "test-headless"
 }
 
 // installs the client webapp

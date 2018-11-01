@@ -28,18 +28,18 @@ jobs:
 
       # Run the backend java tests
       - run:
-          name: Run server tests
+          name: Run Server Tests
           command: gradle test
 
       # Run the frontend js tests
       - run:
-          name: Run client tests
+          name: Run Client Tests
           command: gradle testFrontend
 
       # Save test result reports
       # see https://circleci.com/docs/2.0/collect-test-data/
       - run:
-          name: Save test results
+          name: Save Test Results
           command: |
               mkdir -p ~/junit/
               find . -type f -regex ".*/build/test-results/.*xml" -exec cp {} ~/junit/ \;
@@ -51,14 +51,20 @@ jobs:
           path: ~/junit
 
   deploy:
-    docker:
-      - image: circleci/openjdk:8-jdk-node-browsers
+    machine: true
+
     steps:
       - checkout
       - run:
+          name: Build Docker Image
+          command: docker build -t movies
+
+      -run:
           name: Deploy to Heroku
           command: |
-              git push https://heroku:$HEROKU_API_KEY@git.heroku.com/$HEROKU_APP_NAME.git master
+              docker login --username=$HEROKU_USER_NAME --password=$HEROKU_API_KEY registry.heroku.com
+              docker tag movies registry.heroku.com/$HEROKU_APP_NAME/web
+              docker push registry.heroku.com/$HEROKU_APP_NAME/web
 
 workflows:
   version: 2

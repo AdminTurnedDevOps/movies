@@ -8,18 +8,13 @@ jobs:
     docker:
       - image: circleci/openjdk:8-jdk
 
-    environment:
-      # Customize the JVM maximum heap limit
-      JVM_OPTS: -Xmx3200m
-      TERM: dumb
-
     steps:
       # Checkout the code from the branch into the working_directory
       - checkout
-        # Log the current branch
-        - run:
-          name: Print current branch
-          command: echo ${CIRCLE_BRANCH}
+      # Log the current branch
+      - run:
+        name: Print current branch
+        command: echo ${CIRCLE_BRANCH}
 
       # Download and cache dependencies
       - restore_cache:

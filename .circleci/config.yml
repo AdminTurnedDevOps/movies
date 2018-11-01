@@ -6,7 +6,7 @@ jobs:
     working_directory: ~/workspace
 
     docker:
-      - image: circleci/openjdk:8-jdk
+      - image: circleci/openjdk:8-jdk-node-browsers
 
     steps:
       # Checkout the code from the branch into the working_directory
@@ -29,17 +29,6 @@ jobs:
           paths:
             - ~/.gradle
           key: v1-dependencies-{{ checksum "build.gradle" }}
-
-      # TODO create custom Docker image with Node and Yarn Installed
-      - run:
-          name: Download Node
-          command: curl -sL https://deb.nodesource.com/setup_9.x | sudo -E bash
-      - run:
-          name: Install Node
-          command: sudo apt-get install -y nodejs
-      - run:
-          name: update-npm
-          command: sudo npm install -g npm@latest
 
       # TODO: move tests to a separate step
       - run:

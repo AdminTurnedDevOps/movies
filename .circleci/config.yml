@@ -6,15 +6,13 @@ jobs:
     working_directory: ~/workspace
 
     docker:
+      # Docker image provided by CircleCI with pre-installed java, node and chrome
+      # https://hub.docker.com/r/circleci/openjdk/
       - image: circleci/openjdk:8-jdk-node-browsers
 
     steps:
-      # Checkout the code from the branch into the working_directory
+      # Check out the master branch of the project repository
       - checkout
-      # Log the current branch
-      - run:
-          name: Print current branch
-          command: echo ${CIRCLE_BRANCH}
 
       # Download and cache dependencies
       - restore_cache:
@@ -30,7 +28,6 @@ jobs:
             - ~/.gradle
           key: v1-dependencies-{{ checksum "build.gradle" }}
 
-      # TODO: move tests to a separate step
       - run:
           name: Run server tests
           command: gradle test
@@ -38,5 +35,16 @@ jobs:
       - run:
           name: Run client tests
           command: gradle testFrontend
+
+      - run:
+          name: Save server test results
+          command: |
+              mkdir -p ~/junit/
+              find . -type f -regex ".*/build/test-results/.*xml" -exec cp {} ~/junit/ \;
+          when: always
+      - store_test_results:
+          path: ~/junit
+      - store_artifacts:
+          path: ~/junit
 
       # TODO: on a successful build => deploy to heroku

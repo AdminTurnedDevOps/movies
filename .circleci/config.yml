@@ -8,10 +8,6 @@ jobs:
       # https://hub.docker.com/r/circleci/openjdk/
       - image: circleci/openjdk:8-jdk-node-browsers
 
-    environment:
-        JUNIT_REPORT_PATH: ./junit/
-        JUNIT_REPORT_NAME: test-results.xml
-
     steps:
       # Check out the master branch of the project repository
       - checkout

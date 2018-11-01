@@ -23,8 +23,8 @@ module.exports = function (config) {
     },
     reporters: ['progress', 'kjhtml', 'junit'],
     junitReporter: {
-      outputDir: process.env.JUNIT_REPORT_PATH || require('path').join(__dirname, '../test-results'),
-      outputFile: process.env.JUNIT_REPORT_NAME || 'test-results.xml',
+      outputDir: require('path').join(__dirname, '../../../../build/test-results'),
+      outputFile: 'karma-test-results.xml',
       useBrowserName: false
     },
     port: 9876,

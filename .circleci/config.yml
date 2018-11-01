@@ -58,7 +58,7 @@ jobs:
 
       - run:
           name: Build Docker Image
-          command: docker build -t movies
+          command: docker build -t movies .
 
       - run:
           name: Deploy to Heroku

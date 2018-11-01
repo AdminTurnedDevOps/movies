@@ -21,6 +21,9 @@ module.exports = function (config) {
       reports: ['html', 'lcovonly'],
       fixWebpackSourcePaths: true
     },
+    // the junit reporter is configured to write the karma test results into the same
+    // folder where the backend tests are stored: build/test-results
+    // it is used/scanned by Circle CI to display the test reports
     reporters: ['progress', 'kjhtml', 'junit'],
     junitReporter: {
       outputDir: require('path').join(__dirname, '../../../../build/test-results'),

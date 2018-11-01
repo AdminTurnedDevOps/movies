@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.com/ynnckth/movies.svg?branch=master)](https://travis-ci.com/ynnckth/movies)
+[![CircleCI](https://circleci.com/gh/ynnckth/movies.svg?style=svg)](https://circleci.com/gh/ynnckth/movies)
 
 # Movies
 Demo application used in the course [*Building Microservices with Spring Boot*](https://github.com/ynnckth/building-microservices)

@@ -37,6 +37,7 @@ jobs:
           command: gradle testFrontend
 
       # Save test result reports
+      # see https://circleci.com/docs/2.0/collect-test-data/
       - run:
           name: Save test results
           command: |

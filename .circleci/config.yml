@@ -51,10 +51,12 @@ jobs:
           path: ~/junit
 
   deploy:
+
     machine: true
 
     steps:
       - checkout
+
       - run:
           name: Build Docker Image
           command: docker build -t movies

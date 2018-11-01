@@ -34,8 +34,9 @@ jobs:
           name: Run server tests
           command: gradle test
 
-      - run:
-          name: Run client tests
-          command: gradle testFrontend
+      # TODO: run angular frontend tests (requires npm installed on the machine)
+      #      - run:
+      #          name: Run client tests
+      #          command: gradle testFrontend
 
       # TODO: on a successful build => deploy to heroku

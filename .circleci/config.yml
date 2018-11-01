@@ -13,8 +13,8 @@ jobs:
       - checkout
       # Log the current branch
       - run:
-        name: Print current branch
-        command: echo ${CIRCLE_BRANCH}
+          name: Print current branch
+          command: echo ${CIRCLE_BRANCH}
 
       # Download and cache dependencies
       - restore_cache:
@@ -31,11 +31,11 @@ jobs:
           key: v1-dependencies-{{ checksum "build.gradle" }}
 
       - run:
-        name: Run server tests
-        command: gradle test
+          name: Run server tests
+          command: gradle test
 
       - run:
-        name: Run client tests
-        command: gradle testFrontend
+          name: Run client tests
+          command: gradle testFrontend
 
       # TODO: on a successful build => deploy to heroku

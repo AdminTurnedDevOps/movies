@@ -50,6 +50,7 @@ jobs:
       - store_artifacts:
           path: ~/junit
 
+  # TODO: fix container image successfully pushed to Heroku but crashes after 30 sec.
   deploy:
     machine: true
 
@@ -57,7 +58,7 @@ jobs:
       - checkout
 
       - run:
-          name: Setup Heroku
+          name: Setup Heroku CLI
           command: bash .circleci/setup-heroku.sh
 
       # Deploy our Docker image to the Heroku container registry and start a container

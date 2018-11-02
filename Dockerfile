@@ -5,8 +5,9 @@ FROM circleci/openjdk:8-jdk-node-browsers
 WORKDIR /usr/src/app
 COPY . .
 
-# needed to allow gradle execution
-RUN sudo chmod 777 -R .
-RUN gradle build
+# TODO: fix permissions for running gradle and remove root user
+# to provoke error remove the USER line and add --stacktrace to the build command
+USER root
+RUN ./gradlew build
 
-CMD ["java", "-jar", "build/libs/movies-0.0.1-SNAPSHOT.jar", "--server.port=$PORT"]
+CMD ["java", "-jar", "build/libs/movies-0.0.1-SNAPSHOT.jar"]

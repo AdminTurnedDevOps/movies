@@ -57,19 +57,15 @@ jobs:
       - checkout
 
       - run:
-          name: Build Docker Image
-          command: docker build -t movies .
-
-      - run:
           name: Setup Heroku
           command: bash .circleci/setup-heroku.sh
 
+      # Deploy our Docker image to the Heroku container registry and start a container
       - run:
           name: Deploy to Heroku
           command: |
-              heroku container:login
-              heroku container:push web
-              heroku container:release web
+              heroku container:push --app $HEROKU_APP_NAME web
+              heroku container:release --app $HEROKU_APP_NAME web
 
 workflows:
   version: 2

@@ -9,4 +9,4 @@ COPY . .
 RUN sudo chmod 777 -R .
 RUN gradle build
 
-CMD ["java", "-jar", "build/libs/movies-0.0.1-SNAPSHOT.jar"]
+CMD ["java", "-jar", "build/libs/movies-0.0.1-SNAPSHOT.jar", "--server.port=$PORT"]

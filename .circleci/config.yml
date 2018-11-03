@@ -50,7 +50,6 @@ jobs:
       - store_artifacts:
           path: ~/junit
 
-  # TODO: fix container image successfully pushed to Heroku but crashes after 30 sec.
   deploy:
     machine: true
 

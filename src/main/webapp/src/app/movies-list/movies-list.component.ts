@@ -29,7 +29,6 @@ export class MoviesListComponent implements OnInit {
         this.displayedMovies = movies;
       },error => {
         this.errorLoadingMovies = true;
-        console.log(error);
       });
   }
 

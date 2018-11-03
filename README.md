@@ -1,52 +1,37 @@
 [![CircleCI](https://circleci.com/gh/ynnckth/movies.svg?style=svg)](https://circleci.com/gh/ynnckth/movies)
 
 # Movies
-Demo application used in the course [*Building Microservices with Spring Boot*](https://github.com/ynnckth/building-microservices)
+Demo webapp used in the course [*Building Microservices with Spring Boot*](https://github.com/ynnckth/building-microservices)
 
 
-## Development
+#### Links
+- [CI/CD on CircleCI](https://circleci.com/gh/ynnckth/movies)
+- [Running app on Heroku](https://my-awesome-movies.herokuapp.com/)
+- [Backend server Swagger API documentation](http://localhost:8080/swagger-ui.html)
+- [Hystrix Monitoring Dashboard (Circuit Breaker)](http://localhost:8080/hystrix/monitor?stream=http%3A%2F%2Flocalhost%3A8080%2Fhystrix.stream)
 
-### Client / Frontend
 
-The Angular client code is located under `src/main/webapp`
-and was created using the [angular-cli](https://cli.angular.io/).
+#### Run locally
+First you need to build the app. This preconfigured script creates a Docker image containing the app.
+> `sh ./scripts/build.sh`
 
-**Serve/watch client (live reload server)**  
-To start a local dev server for the client code run:  
-> `ng serve --open`    
-http://localhost:4200
+Start the containerized app using Docker (starts app running on port 8080):
+> `sh ./scripts/run.sh`
 
-**Build client**
-> `ng build`   
-Builds the client into the `src/main/webapp/dist/` directory
-
-### Server / Backend
-
-Build the application: 
+Alternatively you can build the application without using Docker:
 > `./gradlew build`
 
 Run the built jar (starts the app running on port 8080):
 > `java -jar build/libs/<artifact>.jar`
 
-#### Swagger Endpoint Documentation
-> http://localhost:8080/swagger-ui.html
 
-#### Health Indicators
-Take a look at the following docs for the health indicators:  
-https://docs.spring.io/spring-boot/docs/current-SNAPSHOT/reference/htmlsingle/#production-ready-endpoints
-
-#### Circuit Breaker
-Check the Hystrix Monitoring Dashboard:  
-> http://localhost:8080/hystrix/monitor?stream=http%3A%2F%2Flocalhost%3A8080%2Fhystrix.stream
-
-The configuration is done in the `application.properties` file.
+#### Development
+Start the the backend server by running the `MovieTicketServiceApplication.java` or running:
+> `./gradlew bootRun`  
+will start the server running on port 8080
 
 
-
-## CI/CD Pipeline
-This project uses **Travis CI** as a continuous integration and deployment platform (https://travis-ci.com/).  
-The configuration is done in `travis.yml`. The Github repository of this project is referenced in the Travis project.
-
-The config defines **Heroku** as a deployment target and pushes the app to Heroku on a successful build.  
-The Heroku config is defined in `Procfile`.
-
+Start a frontend development server in watch (live reload) mode for the Angular app:
+Navigate to the webapp dir located at `src/main/webapp/` and run:
+> `ng serve`  
+navigate to http://localhost:4200

@@ -21,20 +21,8 @@ public class RatingServiceAdapter implements HealthIndicator {
 
     public RatingServiceAdapter(String url) {
         this.url = url;
-
-        // This fallback mock will be used if the real rating-service fails.
-        // The fallback service returns an empty list instead of the ratings.
-        RatingServiceApi ratingServiceApiFallback = new RatingServiceApi() {
-            @Override
-            public List<RatingResponse> getRatingsByMovieId(int id) {
-                return Collections.emptyList();
-            }
-            @Override
-            public void getHealthStatus() { }
-        };
-
-        this.ratingServiceApi = RestClientFactory
-                .createClientWithFallback(url, RatingServiceApi.class, ratingServiceApiFallback);
+        this.ratingServiceApi =
+                RestClientFactory.createClientWithFallback(url, RatingServiceApi.class, getRatingServiceApiFallback());
     }
 
     public List<Rating> getRatings(int movieId) {
@@ -55,5 +43,21 @@ public class RatingServiceAdapter implements HealthIndicator {
                     .withDetail("Endpoint", url)
                     .build();
         }
+    }
+
+    /**
+     * This fallback API mock will be used if the real service fails.
+     */
+    private RatingServiceApi getRatingServiceApiFallback() {
+        // This fallback mock will be used if the real rating-service fails.
+        // The fallback service returns an empty list instead of the ratings.
+        return new RatingServiceApi() {
+            @Override
+            public List<RatingResponse> getRatingsByMovieId(int id) {
+                return Collections.emptyList();
+            }
+            @Override
+            public void getHealthStatus() { }
+        };
     }
 }

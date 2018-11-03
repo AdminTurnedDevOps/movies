@@ -52,17 +52,18 @@ dependencies {
 
 def webappDir = "$projectDir/src/main/webapp"
 
-sourceSets {
-	main {
-		resources {
-			srcDirs = ["$webappDir/dist", "$projectDir/src/main/resources"]
-		}
-	}
-}
-
 // gets called from the java plugin build task
 processResources {
-    dependsOn "buildFrontend"
+	dependsOn "copyFrontendDist"
+}
+
+// TODO: check if there is a more elegant way to build the frontend here
+// copies the built frontend content into the static resources directory
+task copyFrontendDist(type: Copy) {
+	dependsOn "buildFrontend"
+
+	from "$webappDir/dist/webapp"
+	into "$projectDir/src/main/resources/static"
 }
 
 // builds the frontend webapp into src/main/webapp/dist

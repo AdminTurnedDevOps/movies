@@ -64,6 +64,7 @@ jobs:
       - run:
           name: Deploy to Heroku
           command: |
+              heroku container:login
               heroku container:push --app $HEROKU_APP_NAME web
               heroku container:release --app $HEROKU_APP_NAME web
 

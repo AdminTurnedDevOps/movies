@@ -1,7 +1,8 @@
 [![CircleCI](https://circleci.com/gh/ynnckth/movies.svg?style=svg)](https://circleci.com/gh/ynnckth/movies)
 
 # Movies
-Demo webapp used in the course [*Building Microservices with Spring Boot*](https://github.com/ynnckth/building-microservices)
+Fullstack example project using Spring Boot, Angular and other state-of-the-art components and tools.  
+This is the demo app used in the course [*Building Microservices with Spring Boot*](https://github.com/ynnckth/building-microservices).
 
 
 #### Links

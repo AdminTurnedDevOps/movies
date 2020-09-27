@@ -1,0 +1,19 @@
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: "nobsaks01-aae0"
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: "nobsaks01-aae0"
+  template:
+    metadata:
+      labels:
+        app: "nobsaks01-aae0"
+    spec:
+      containers:
+        - name: "nobsaks01-aae0"
+          image: "nobstest.azurecr.io/nobsaks01"
+          ports:
+          - containerPort: 80
